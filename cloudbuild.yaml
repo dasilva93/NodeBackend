@@ -1,14 +1,5 @@
 steps:
-# Install dependencies
-- name: node
-  entrypoint: npm
-  args: ['install']
-# Run tests
-- name: node
-  entrypoint: npm
-  args: ['test']
-# Run custom commands
-- name: node
-  entrypoint: npm
-  args: ['run', 'build']
-
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['run', 'deploy', 'nodebackend-run', '--image', 'gcr.io/nodebackend/nodebackend-run:${SHORT_SHA}', '--region', 'us-central1', '--allow-unauthenticated']  
+images:
+- gcr.io/nodebackend/nodebackend-run
