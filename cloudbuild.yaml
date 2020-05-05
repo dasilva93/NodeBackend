@@ -5,6 +5,4 @@ steps:
     - name: node
       entrypoint: npm
       args: ['run']
-      images:
-        - gcr.io/$PROJECT_ID/hello-cloud-run
-      
+     
